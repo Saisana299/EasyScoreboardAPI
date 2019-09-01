@@ -1,0 +1,2 @@
+# EasyScoreboardAPI
+スコアボードをプレイヤーに表示させます
