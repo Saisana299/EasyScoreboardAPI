@@ -85,16 +85,20 @@ ___
 ### 使用例  
 ##### sidebarに表示
 ```php
+//$playerはSaisana299
 EasyScoreBoardAPI::createScoreBoard($player, "sidebar", "TEST", false);
 EasyScoreBoardAPI::setScoreBoardLine($player, "sidebar", "時間 ", 111, 1);
 EasyScoreBoardAPI::setScoreBoardLine($player, "sidebar", "時間2", 121, 2);
 ```
 とすると...  
+<img src="/assets/sidebar.png">  
 
 #### listに表示
 ```php
+//$playerはSaisana299
 EasyScoreBoardAPI::createScoreBoard($player, "list", "TEST", false);
 EasyScoreBoardAPI::setScoreBoardPlayerLine($player, $player, 1, 1);
 EasyScoreBoardAPI::setScoreBoardLine($player,"list", "時間", 111, 2);
 ```
 とすると...  
+<img src="/assets/list.png">  
