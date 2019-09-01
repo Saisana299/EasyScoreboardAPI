@@ -1,0 +1,11 @@
+---
+name: EasyScoreboardAPI
+main: Saisana299\easyscoreboardapi\EasyScoreboardAPI
+version: 1.0.0
+api:
+- 3.5.0
+load: POSTWORLD
+author: Saisana299
+authors: [PawarenessC]
+description: 簡単なスコアボードのAPI
+...
