@@ -97,7 +97,6 @@ ___
 //$playerはSaisana299
 EasyScoreBoardAPI::createScoreBoard($player, "sidebar", "TEST", false);
 EasyScoreBoardAPI::setScoreBoardLine($player, "sidebar", "時間 ", 111, 1);
-EasyScoreBoardAPI::setScoreBoardLine($player, "sidebar", "時間2", 121, 2);
 ```
 とすると...  
 <img src="/assets/sidebar.png"> 
