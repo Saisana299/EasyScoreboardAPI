@@ -1,9 +1,9 @@
-## EasyScoreboardAPI
+# EasyScoreboardAPI
 [![GitHub license](https://img.shields.io/badge/license-MIT%20License-blue)](https://github.com/Saisana299/EasyScoreboardAPI/blob/master/LICENSE)  
 EasyScoreboardAPIは指定したプレイヤーにスコアボードを表示させることができるAPIです
   
   
-### 使い方  
+## 使い方  
 ##### ・必須Use文
 ```php
 use Saisana299\easyscoreboardapi\EasyScoreboardAPI;
@@ -82,7 +82,7 @@ EasyScoreboardAPI::getScoreboardPlayers($displaySlot);
 |$displaySlot|`"sidebar"` or `"list"`|スコアボードの表示場所|
 ___
 
-### 使用例  
+## 使用例  
 ##### sidebarに表示
 ```php
 //$playerはSaisana299
@@ -91,7 +91,8 @@ EasyScoreBoardAPI::setScoreBoardLine($player, "sidebar", "時間 ", 111, 1);
 EasyScoreBoardAPI::setScoreBoardLine($player, "sidebar", "時間2", 121, 2);
 ```
 とすると...  
-<img src="/assets/sidebar.png">  
+<img src="/assets/sidebar.png"> 
+___
 
 #### listに表示
 ```php
