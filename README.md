@@ -17,7 +17,7 @@ EasyScoreboardAPIは指定したプレイヤーにスコアボードを表示さ
 use Saisana299\easyscoreboardapi\EasyScoreboardAPI;
 ```
 ___
-##### ・プレイヤーにスコアボードを送信
+##### ・スコアボードを作成しプレイヤーに送信
 ```php
 EasyScoreboardAPI::createScoreboard($player, $displaySlot, $displayName, $sortOrder);
 ```
