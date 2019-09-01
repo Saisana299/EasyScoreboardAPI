@@ -228,7 +228,7 @@ class EasyScoreboardAPI extends PluginBase{
 	 * 
 	 * @param  string  $displaySlot [スコアボードの表示場所 (sidebar, list)]
 	 */
-	public static function hasScoreboardPlayers(string $displaySlot): array{
+	public static function getScoreboardPlayers(string $displaySlot): array{
 		if($displaySlot === "sidebar"){
 			return self::$sidebar;
 		}elseif($displaySlot === "list"){
