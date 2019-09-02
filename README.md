@@ -11,6 +11,7 @@ EasyScoreboardAPIは指定したプレイヤーにスコアボードを表示さ
 ### v1.1.0 更新予定
 - 関数名の変更
 - 全プレイヤーに処理する関数の追加
+更新予定日9/03～9/06
 
 ### ダウンロード
 ダウンロードはこちら [Download](https://github.com/Saisana299/EasyScoreboardAPI/releases/tag/v1.0.0)  
