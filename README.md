@@ -8,6 +8,10 @@ EasyScoreboardAPIは指定したプレイヤーにスコアボードを表示さ
 - [x] list
 - [ ] belowname `不明`
 
+### 更新予定
+- 関数名の変更
+- 全プレイヤーに処理する関数の追加
+
 ### ダウンロード
 ダウンロードはこちら [Download](https://github.com/Saisana299/EasyScoreboardAPI/releases/tag/v1.0.0)  
   
