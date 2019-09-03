@@ -1,6 +1,6 @@
 # EasyScoreboardAPI
 [![GitHub license](https://img.shields.io/badge/license-MIT%20License-blue)](https://github.com/Saisana299/EasyScoreboardAPI/blob/master/LICENSE)
-[![GitHub license](https://img.shields.io/badge/release-v1.0.0-green)](https://github.com/Saisana299/EasyScoreboardAPI/releases/tag/v1.0.0)  
+[![GitHub license](https://img.shields.io/badge/release-v1.1.0-green)](https://github.com/Saisana299/EasyScoreboardAPI/releases/tag/v1.1.0)  
 EasyScoreboardAPIは指定したプレイヤーにスコアボードを表示させることができるAPIです
   
 ### 対応状況
@@ -8,13 +8,8 @@ EasyScoreboardAPIは指定したプレイヤーにスコアボードを表示さ
 - [x] list
 - [ ] belowname `不明`
 
-### v1.1.0 更新予定
-- 関数名の変更
-- 全プレイヤーに処理する関数の追加
-更新予定日9/03～9/06
-
 ### ダウンロード
-ダウンロードはこちら [Download](https://github.com/Saisana299/EasyScoreboardAPI/releases/tag/v1.0.0)  
+ダウンロードはこちら [Download](https://github.com/Saisana299/EasyScoreboardAPI/releases/tag/v1.1.0)  
   
 ### 使い方  
 ##### ・必須Use文
@@ -24,7 +19,7 @@ use Saisana299\easyscoreboardapi\EasyScoreboardAPI;
 ___
 ##### ・スコアボードを作成しプレイヤーに送信
 ```php
-EasyScoreboardAPI::createScoreboard($player, $displaySlot, $displayName, $sortOrder);
+EasyScoreboardAPI::sendScoreboard($player, $displaySlot, $displayName, $sortOrder);
 ```
 |変数名|入れる値|説明|
 |:--:|:--:|:--:|
@@ -35,7 +30,7 @@ EasyScoreboardAPI::createScoreboard($player, $displaySlot, $displayName, $sortOr
 ___
 ##### ・プレイヤーにスコアを表示、スコアの更新
 ```php
-EasyScoreboardAPI::setScoreboardLine($player, $displaySlot, $message, $score, $scoreboardId);
+EasyScoreboardAPI::setScore($player, $displaySlot, $message, $score, $scoreboardId);
 ```
 |変数名|入れる値|説明|
 |:--:|:--:|:--:|
@@ -48,7 +43,7 @@ ___
 ##### ・プレイヤーにプレイヤーのスコアを表示、スコアの更新
 　※listのみ表示できます(sidebarには表示できません)
 ```php
-EasyScoreboardAPI::setScoreboardPlayerLine($player, $player2, $score, $scoreboardId);
+EasyScoreboardAPI::setPlayerScore($player, $player2, $score, $scoreboardId);
 ```
 |変数名|入れる値|説明|
 |:--:|:--:|:--:|
@@ -59,7 +54,7 @@ EasyScoreboardAPI::setScoreboardPlayerLine($player, $player2, $score, $scoreboar
 ___
 ##### ・プレイヤーに表示したスコアを消去
 ```php
-EasyScoreboardAPI::removeScoreboardLine($player, $displaySlot, $scoreboardId);
+EasyScoreboardAPI::removeScore($player, $displaySlot, $scoreboardId);
 ```
 |変数名|入れる値|説明|
 |:--:|:--:|:--:|
@@ -69,7 +64,7 @@ EasyScoreboardAPI::removeScoreboardLine($player, $displaySlot, $scoreboardId);
 ___
 ##### ・プレイヤーに表示したスコアボードを消去
 ```php
-EasyScoreboardAPI::removeScoreboard($player, $displaySlot);
+EasyScoreboardAPI::deleteScoreboard($player, $displaySlot);
 ```
 |変数名|入れる値|説明|
 |:--:|:--:|:--:|
@@ -100,8 +95,8 @@ ___
 ##### sidebarに表示
 ```php
 //$playerはSaisana299
-EasyScoreBoardAPI::createScoreBoard($player, "sidebar", "TEST", false);
-EasyScoreBoardAPI::setScoreBoardLine($player, "sidebar", "時間 ", 111, 1);
+EasyScoreBoardAPI::sendScoreBoard($player, "sidebar", "TEST", false);
+EasyScoreBoardAPI::setScore($player, "sidebar", "時間 ", 111, 1);
 ```
 とすると...  
 <img src="/assets/sidebar.png"> 
@@ -110,9 +105,9 @@ ___
 #### listに表示
 ```php
 //$playerはSaisana299
-EasyScoreBoardAPI::createScoreBoard($player, "list", "TEST", false);
-EasyScoreBoardAPI::setScoreBoardPlayerLine($player, $player, 1, 1);
-EasyScoreBoardAPI::setScoreBoardLine($player,"list", "時間", 111, 2);
+EasyScoreBoardAPI::sendScoreBoard($player, "list", "TEST", false);
+EasyScoreBoardAPI::setPlayerScore($player, $player, 1, 1);
+EasyScoreBoardAPI::setScore($player,"list", "時間", 111, 2);
 ```
 とすると...  
 <img src="/assets/list.png">  
