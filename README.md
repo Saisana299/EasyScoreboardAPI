@@ -6,7 +6,7 @@ EasyScoreboardAPIは指定したプレイヤーにスコアボードを表示さ
 ### 対応状況
 - [x] sidebar
 - [x] list
-- [ ] belowname `不明`
+- [ ] belowname `※1`
 
 ### ダウンロード
 ダウンロードはこちら [Download](https://github.com/Saisana299/EasyScoreboardAPI/releases/tag/v1.1.0)  
@@ -38,19 +38,19 @@ EasyScoreboardAPI::setScore($player, $displaySlot, $message, $score, $scoreboard
 |$displaySlot|`"sidebar"` or `"list"`|スコアボードを表示した場所|
 |$message|文字列|スコア名|
 |$score|整数|スコア|
-|$scoreboardId|整数|スコアのID (任意の数字)|
+|$scoreboardId|整数|スコアのID (任意の数字) `※2`|
 ___
-##### ・プレイヤーにプレイヤーのスコアを表示、スコアの更新
+##### ・プレイヤーにプレイヤースコアを表示、プレイヤースコアの更新
 　※listのみ表示できます(sidebarには表示できません)
 ```php
 EasyScoreboardAPI::setPlayerScore($player, $player2, $score, $scoreboardId);
 ```
 |変数名|入れる値|説明|
 |:--:|:--:|:--:|
-|$player|Playerオブジェクト|スコアを表示するプレイヤー|
+|$player|Playerオブジェクト|プレイヤースコアを表示するプレイヤー|
 |$player2|Playerオブジェクト|スコア (プレイヤー)|
 |$score|整数|スコア|
-|$scoreboardId|整数|スコアのID (任意の数字)|
+|$scoreboardId|整数|スコアのID (任意の数字) `※2`|
 ___
 ##### ・プレイヤーに表示したスコアを消去
 ```php
@@ -60,7 +60,7 @@ EasyScoreboardAPI::removeScore($player, $displaySlot, $scoreboardId);
 |:--:|:--:|:--:|
 |$player|Playerオブジェクト|表示したスコアを消去するプレイヤー|
 |$displaySlot|`"sidebar"` or `"list"`|スコアボードを表示した場所|
-|$scoreboardId|整数|スコアのID (任意の数字)|
+|$scoreboardId|整数|スコアのID (任意の数字) `※2`|
 ___
 ##### ・プレイヤーに表示したスコアボードを消去
 ```php
@@ -78,7 +78,7 @@ EasyScoreboardAPI::hasScoreboard($player, $displaySlot);
 ```
 |変数名|入れる値|説明|
 |:--:|:--:|:--:|
-|$player|Playerオブジェクト|表示したスコアボードを消去するプレイヤー|
+|$player|Playerオブジェクト|確認するプレイヤー|
 |$displaySlot|`"sidebar"` or `"list"`|スコアボードの表示場所|
 ___
 ##### ・スコアボードを表示している全プレイヤーを取得
@@ -89,6 +89,18 @@ EasyScoreboardAPI::getScoreboardPlayers($displaySlot);
 |変数名|入れる値|説明|
 |:--:|:--:|:--:|
 |$displaySlot|`"sidebar"` or `"list"`|スコアボードの表示場所|
+___
+### 注釈
+`※1` --- パケット名が不明なため保留中  
+`※2` --- スコアのIDは好きな数字を入れてください  
+```php
+EasyScoreBoardAPI::setScore($player, "sidebar", "TEST", 1, 1);
+EasyScoreBoardAPI::setScore($player, "sidebar", "TEST2", 1, 1);
+```
+この場合スコアIDが両方1なので、後からsetScoreしたものが表示されます(TEST2)
+スコア名が同じだった場合も一番最後にsetScoreしたものが表示されます。
+
+※使えば分かると思います
 ___
 
 ### 使用例  
