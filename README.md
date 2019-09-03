@@ -97,7 +97,7 @@ ___
 EasyScoreBoardAPI::setScore($player, "sidebar", "TEST", 1, 1);
 EasyScoreBoardAPI::setScore($player, "sidebar", "TEST2", 1, 1);
 ```
-この場合スコアIDが両方1なので、後からsetScoreしたものが表示されます(TEST2)
+この場合スコアIDが両方1なので、後からsetScoreしたものが表示されます(TEST2)  
 スコア名が同じだった場合も一番最後にsetScoreしたものが表示されます。
 
 ※使えば分かると思います
