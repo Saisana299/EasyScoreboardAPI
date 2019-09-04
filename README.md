@@ -1,5 +1,5 @@
 # EasyScoreboardAPI
-[![GitHub license](https://img.shields.io/badge/license-MIT%20License-blue)](https://github.com/Saisana299/EasyScoreboardAPI/blob/master/LICENSE)
+[![GitHub license](https://img.shields.io/badge/license-UIUC/NCSA%20License-blue)](https://github.com/Saisana299/EasyScoreboardAPI/blob/master/LICENSE)
 [![GitHub license](https://img.shields.io/badge/release-v1.1.0-green)](https://github.com/Saisana299/EasyScoreboardAPI/releases/tag/v1.1.0)  
 EasyScoreboardAPIは指定したプレイヤーにスコアボードを表示させることができるAPIです
   
