@@ -1,6 +1,6 @@
 # EasyScoreboardAPI
 [![GitHub license](https://img.shields.io/badge/license-UIUC/NCSA-blue)](https://github.com/Saisana299/EasyScoreboardAPI/blob/master/LICENSE)
-[![GitHub license](https://img.shields.io/badge/release-v1.1.0-green)](https://github.com/Saisana299/EasyScoreboardAPI/releases/tag/v1.1.0)  
+[![GitHub license](https://img.shields.io/badge/release-v1.2.0-green)](https://github.com/Saisana299/EasyScoreboardAPI/releases/tag/v1.2.0)  
 EasyScoreboardAPIは指定したプレイヤーにスコアボードを表示させることができるAPIです
   
 ### 対応状況
@@ -9,7 +9,7 @@ EasyScoreboardAPIは指定したプレイヤーにスコアボードを表示さ
 - [ ] belowname `※1`
 
 ### ダウンロード
-ダウンロードはこちら [Download](https://github.com/Saisana299/EasyScoreboardAPI/releases/tag/v1.1.0)  
+ダウンロードはこちら [Download](https://github.com/Saisana299/EasyScoreboardAPI/releases/tag/v1.2.0)  
   
 ### 使い方  
 ##### ・必須Use文
@@ -19,7 +19,7 @@ use Saisana299\easyscoreboardapi\EasyScoreboardAPI;
 ___
 ##### ・スコアボードを作成しプレイヤーに送信
 ```php
-EasyScoreboardAPI::sendScoreboard($player, $displaySlot, $displayName, $sortOrder);
+EasyScoreboardAPI::getInstance()->sendScoreboard($player, $displaySlot, $displayName, $sortOrder);
 ```
 |変数名|入れる値|説明|
 |:--:|:--:|:--:|
@@ -30,7 +30,7 @@ EasyScoreboardAPI::sendScoreboard($player, $displaySlot, $displayName, $sortOrde
 ___
 ##### ・プレイヤーにスコアを表示、スコアの更新
 ```php
-EasyScoreboardAPI::setScore($player, $displaySlot, $message, $score, $scoreboardId);
+EasyScoreboardAPI::getInstance()->setScore($player, $displaySlot, $message, $score, $scoreboardId);
 ```
 |変数名|入れる値|説明|
 |:--:|:--:|:--:|
@@ -43,7 +43,7 @@ ___
 ##### ・プレイヤーにプレイヤースコアを表示、プレイヤースコアの更新
 　※listのみ表示できます(sidebarには表示できません)
 ```php
-EasyScoreboardAPI::setPlayerScore($player, $player2, $score, $scoreboardId);
+EasyScoreboardAPI::getInstance()->setPlayerScore($player, $player2, $score, $scoreboardId);
 ```
 |変数名|入れる値|説明|
 |:--:|:--:|:--:|
@@ -54,7 +54,7 @@ EasyScoreboardAPI::setPlayerScore($player, $player2, $score, $scoreboardId);
 ___
 ##### ・プレイヤーに表示したスコアを消去
 ```php
-EasyScoreboardAPI::removeScore($player, $displaySlot, $scoreboardId);
+EasyScoreboardAPI::getInstance()->removeScore($player, $displaySlot, $scoreboardId);
 ```
 |変数名|入れる値|説明|
 |:--:|:--:|:--:|
@@ -64,7 +64,7 @@ EasyScoreboardAPI::removeScore($player, $displaySlot, $scoreboardId);
 ___
 ##### ・プレイヤーに表示したスコアボードを消去
 ```php
-EasyScoreboardAPI::deleteScoreboard($player, $displaySlot);
+EasyScoreboardAPI::getInstance()->deleteScoreboard($player, $displaySlot);
 ```
 |変数名|入れる値|説明|
 |:--:|:--:|:--:|
@@ -74,7 +74,7 @@ ___
 ##### ・プレイヤーがスコアボードを表示しているか確認  
 　返り値が true= 表示されている、false= 表示されていない。
 ```php
-EasyScoreboardAPI::hasScoreboard($player, $displaySlot);
+EasyScoreboardAPI::getInstance()->hasScoreboard($player, $displaySlot);
 ```
 |変数名|入れる値|説明|
 |:--:|:--:|:--:|
@@ -84,7 +84,7 @@ ___
 ##### ・スコアボードを表示している全プレイヤーを取得
 　配列を返します。
 ```php
-EasyScoreboardAPI::getScoreboardPlayers($displaySlot);
+EasyScoreboardAPI::getInstance()->getScoreboardPlayers($displaySlot);
 ```
 |変数名|入れる値|説明|
 |:--:|:--:|:--:|
@@ -94,8 +94,8 @@ ___
 `※1` --- パケット名が不明なため保留中  
 `※2` --- スコアのIDは好きな数字を入れてください  
 ```php
-EasyScoreBoardAPI::setScore($player, "sidebar", "TEST", 1, 1);
-EasyScoreBoardAPI::setScore($player, "sidebar", "TEST2", 1, 1);
+EasyScoreBoardAPI::getInstance()->setScore($player, "sidebar", "TEST", 1, 1);
+EasyScoreBoardAPI::getInstance()->setScore($player, "sidebar", "TEST2", 1, 1);
 ```
 この場合スコアIDが両方1なので、後からsetScoreしたものが表示されます(TEST2)  
 スコア名が同じだった場合も一番最後にsetScoreしたものが表示されます。
@@ -107,8 +107,8 @@ ___
 ##### sidebarに表示
 ```php
 //$playerはSaisana299
-EasyScoreBoardAPI::sendScoreBoard($player, "sidebar", "TEST", false);
-EasyScoreBoardAPI::setScore($player, "sidebar", "時間 ", 111, 1);
+EasyScoreBoardAPI::getInstance()->sendScoreBoard($player, "sidebar", "TEST", false);
+EasyScoreBoardAPI::getInstance()->setScore($player, "sidebar", "時間 ", 111, 1);
 ```
 とすると...  
 <img src="/assets/sidebar.png"> 
@@ -117,9 +117,9 @@ ___
 #### listに表示
 ```php
 //$playerはSaisana299
-EasyScoreBoardAPI::sendScoreBoard($player, "list", "TEST", false);
-EasyScoreBoardAPI::setPlayerScore($player, $player, 1, 1);
-EasyScoreBoardAPI::setScore($player,"list", "時間", 111, 2);
+EasyScoreBoardAPI::getInstance()->sendScoreBoard($player, "list", "TEST", false);
+EasyScoreBoardAPI::getInstance()->setPlayerScore($player, $player, 1, 1);
+EasyScoreBoardAPI::getInstance()->setScore($player,"list", "時間", 111, 2);
 ```
 とすると...  
 <img src="/assets/list.png">  

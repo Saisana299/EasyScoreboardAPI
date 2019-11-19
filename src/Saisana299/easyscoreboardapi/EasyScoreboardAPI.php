@@ -16,15 +16,20 @@ class EasyScoreboardAPI extends PluginBase{
 
 	/** @var array */
 	private static $sidebar = [];
-
 	/** @var array */
 	private static $list = [];
+	/** @var null */
+	private static $instance = null;
+
+	public static function getInstance(){
+		return self::$instance;
+	}
 
     public function onEnable(){
-
 		$this->getLogger()->info("§eEasy§aScore§bBoard§cAPI§fを読み込みました");
         if (!file_exists($this->getDataFolder())) mkdir($this->getDataFolder(), 0744, true);
         $this->getServer()->getPluginManager()->registerEvents(new EventListener($this), $this);
+        self::$instance = $this;
     }
 
     public function allremove(string $name){
@@ -46,7 +51,7 @@ class EasyScoreboardAPI extends PluginBase{
 	 * @param  string   $displayName    [スコアボードの表示名]
 	 * @param  boolean  $sortOrder      [並び順 (true = スコアが多い順 | false = スコアが少ない順)]
 	 */
-	public static function sendScoreboard(Player $player, string $displaySlot, string $displayName, bool $sortOrder): void{
+	public function sendScoreboard(Player $player, string $displaySlot, string $displayName, bool $sortOrder): void{
 
 		if($displaySlot !== "sidebar" && $displaySlot !== "list"){
 			return;
@@ -89,7 +94,7 @@ class EasyScoreboardAPI extends PluginBase{
 	 * @param  Player $player       
 	 * @param  string $displaySlot  [スコアボードの表示場所 (sidebar, list)]
 	 */
-	public static function deleteScoreboard(Player $player, string $displaySlot): void{
+	public function deleteScoreboard(Player $player, string $displaySlot): void{
 
 		if($displaySlot !== "sidebar" && $displaySlot !== "list"){
 			return;
@@ -119,7 +124,7 @@ class EasyScoreboardAPI extends PluginBase{
 	 * @param int     $score         [スコア]
 	 * @param int     $scoreboardId  [スコアのID (任意の数字)]
 	 */
-	public static function setScore(Player $player, string $displaySlot, string $message, int $score, int $scoreboardId): void{
+	public function setScore(Player $player, string $displaySlot, string $message, int $score, int $scoreboardId): void{
 
 		if($displaySlot !== "sidebar" && $displaySlot !== "list"){
 			return;
@@ -156,7 +161,7 @@ class EasyScoreboardAPI extends PluginBase{
 	 * @param int     $score         [スコア]
 	 * @param int     $scoreboardId  [スコアのID (任意の数字)]
 	 */
-	public static function setPlayerScore(Player $player, Player $player2, int $score, int $scoreboardId): void{
+	public function setPlayerScore(Player $player, Player $player2, int $score, int $scoreboardId): void{
 
 		if(!isset(self::$list[$player->getName()])){
 			return;
@@ -182,7 +187,7 @@ class EasyScoreboardAPI extends PluginBase{
 	 * @param  string $displaySlot   [スコアボードの表示場所 (sidebar, list)]
 	 * @param  int    $scoreboardId  [スコアのID] 
 	 */
-	public static function removeScore(Player $player, string $displaySlot, int $scoreboardId): void{
+	public function removeScore(Player $player, string $displaySlot, int $scoreboardId): void{
 
 		if($displaySlot !== "sidebar" && $displaySlot !== "list"){
 			return;
@@ -214,7 +219,7 @@ class EasyScoreboardAPI extends PluginBase{
 	 * @param  Player  $player       
 	 * @param  string  $displaySlot [スコアボードの表示場所 (sidebar, list)]
 	 */
-	public static function hasScoreboard(Player $player, string $displaySlot): bool{
+	public function hasScoreboard(Player $player, string $displaySlot): bool{
 		if($displaySlot === "sidebar"){
 			return (isset(self::$sidebar[$player->getName()])) ? true : false;
 		}elseif($displaySlot === "list"){
@@ -228,7 +233,7 @@ class EasyScoreboardAPI extends PluginBase{
 	 * 
 	 * @param  string  $displaySlot [スコアボードの表示場所 (sidebar, list)]
 	 */
-	public static function getScoreboardPlayers(string $displaySlot): array{
+	public function getScoreboardPlayers(string $displaySlot): array{
 		if($displaySlot === "sidebar"){
 			return self::$sidebar;
 		}elseif($displaySlot === "list"){
