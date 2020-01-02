@@ -1,7 +1,7 @@
 ---
 name: EasyScoreboardAPI
 main: Saisana299\easyscoreboardapi\EasyScoreboardAPI
-version: 1.2.0
+version: 1.2.1
 api:
 - 3.5.0
 load: POSTWORLD
